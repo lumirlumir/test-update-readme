@@ -26,14 +26,14 @@ jobs:
                   // Import
                   //-----------------------------------------------------------------------------
 
-                  import { readFileSync, writeFileSync } from "fs";
+                  import { readFileSync, writeFileSync } from 'node:fs';
 
                   //-----------------------------------------------------------------------------
                   // Data
                   //-----------------------------------------------------------------------------
 
-                  const SPONSORS_URL = "https://raw.githubusercontent.com/eslint/eslint.org/main/includes/sponsors.md";
-                  const README_FILE_PATH = "./README.md";
+                  const SPONSORS_URL = 'https://raw.githubusercontent.com/eslint/eslint.org/main/includes/sponsors.md';
+                  const README_FILE_PATH = './README.md';
 
                   //-----------------------------------------------------------------------------
                   // Main
