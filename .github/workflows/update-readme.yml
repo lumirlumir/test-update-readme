@@ -41,8 +41,21 @@ jobs:
 
                   const res = await fetch(SPONSORS_URL);
                   const allSponsors = await res.text();
+                  
+                  const readme = readFileSync(README_FILE_PATH, "utf8"); // read readme file
 
-                  console.log(allSponsors);
+                  let newReadme = readme.replace(
+                	  /<!--sponsorsstart-->[\w\W]*?<!--sponsorsend-->/u,
+                	  `<!--sponsorsstart-->\n\n${allSponsors}\n<!--sponsorsend-->`,
+                  );
+
+                  // replace multiple consecutive blank lines with just one blank line
+                  newReadme = newReadme.replace(/(?<=^|\n)\n{2,}/gu, "\n");
+
+                  // output to the files
+                  writeFileSync(README_FILE_PATH, newReadme, "utf8");
+
+                  console.log(newReadme);
                 "
 
             # - name: Setup Git
