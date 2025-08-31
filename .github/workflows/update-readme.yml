@@ -28,6 +28,7 @@ jobs:
                       // Import
                       //-----------------------------------------------------------------------------
 
+                      import { join } from 'node:path';
                       import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 
                       //-----------------------------------------------------------------------------
@@ -35,7 +36,7 @@ jobs:
                       //-----------------------------------------------------------------------------
 
                       const SPONSORS_URL = 'https://raw.githubusercontent.com/eslint/eslint.org/main/includes/sponsors.md';
-                      const PACKAGES_README_FILE_PATHS = existsSync('./packages') ? readdirSync('./packages').map(dir => `./packages/${dir}/README.md`) : [];
+                      const PACKAGES_README_FILE_PATHS = existsSync(join('.', 'packages')) ? readdirSync(join('.', 'packages')).map(dir => join('.', 'packages', dir, 'README.md')) : [];
                       const README_FILE_PATHS = ['./README.md', ...PACKAGES_README_FILE_PATHS];
 
                       //-----------------------------------------------------------------------------
