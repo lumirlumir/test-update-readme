@@ -58,6 +58,8 @@ jobs:
                           // replace multiple consecutive blank lines with just one blank line
                           newReadme = newReadme.replace(/(?<=^|\n)\n{2,}/gu, '\n');
 
+                          console.log(newReadme);
+
                           // output to the files
                           writeFileSync(readmeFilePath, newReadme, 'utf8');
                       });
